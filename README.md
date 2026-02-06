@@ -1,3 +1,5 @@
+<!-- 本文件：项目主说明（英文版），介绍 Claude Code 插件内容、安装方式、目录结构、核心概念与使用说明 -->
+
 **Language:** English | [繁體中文](docs/zh-TW/README.md)
 
 # Everything Claude Code

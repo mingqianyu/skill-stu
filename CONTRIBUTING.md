@@ -1,3 +1,5 @@
+<!-- 本文件：向本仓库贡献的指南（如何提交代理、技能、命令、规则、钩子等，以及 PR 流程） -->
+
 # Contributing to Everything Claude Code
 
 Thanks for wanting to contribute. This repo is meant to be a community resource for Claude Code users.

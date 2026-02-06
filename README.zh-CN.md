@@ -1,3 +1,5 @@
+<!-- 本文件：项目主说明（简体中文版），介绍 Claude Code 插件内容、安装方式、目录结构、核心概念与使用说明 -->
+
 # Everything Claude Code
 
 [![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)

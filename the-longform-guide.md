@@ -1,3 +1,5 @@
+<!-- 本文件：详细指南——在精简指南基础上的进阶内容：Token 优化、内存持久化、验证循环、并行化、子代理编排等 -->
+
 # The Longform Guide to Everything Claude Code
 
 ![Header: The Longform Guide to Everything Claude Code](./assets/images/longform/01-header.png)

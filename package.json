@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "本项目为 Claude Code 配置仓库，无运行时依赖；仅 dev 依赖用于 ESLint、Markdownlint 等代码/文档检查",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "eslint": "^9.39.2",

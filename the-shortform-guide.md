@@ -1,3 +1,5 @@
+<!-- 本文件：精简指南——Claude Code 设置、技能/命令/钩子/子代理/MCP/插件等基础概念与配置，建议先读此文件 -->
+
 # The Shorthand Guide to Everything Claude Code
 
 ![Header: Anthropic Hackathon Winner - Tips & Tricks for Claude Code](./assets/images/shortform/00-header.png)
