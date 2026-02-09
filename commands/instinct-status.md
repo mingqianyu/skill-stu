@@ -4,6 +4,8 @@ description: Show all learned instincts with their confidence levels
 command: true
 ---
 
+<!-- 本命令：/instinct-status。列出 continuous-learning-v2 学到的所有直觉及其置信度，按领域分组显示；数据来自 homunculus/instincts 的 personal 与 inherited。 -->
+
 # Instinct Status Command
 
 Shows all learned instincts with their confidence scores, grouped by domain.

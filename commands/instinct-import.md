@@ -4,6 +4,8 @@ description: Import instincts from teammates, Skill Creator, or other sources
 command: true
 ---
 
+<!-- 本命令：/instinct-import。从文件或 URL 导入他人导出的直觉，合并到 ~/.claude/homunculus/instincts/inherited/；可来自队友、Skill Creator 或社区集合。 -->
+
 # Instinct Import Command
 
 ## Implementation

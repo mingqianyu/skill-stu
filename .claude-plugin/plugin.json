@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "插件清单：插件名、版本、描述、作者、skills/commands/agents 路径。agents 须为具体 .md 路径；勿在此写 hooks，hooks.json 会按约定自动加载。",
   "name": "everything-claude-code",
   "version": "1.2.0",
   "description": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, and rules evolved over 10+ months of intensive daily use",
@@ -22,7 +23,10 @@
     "automation",
     "best-practices"
   ],
-  "skills": ["./skills/", "./commands/"],
+  "skills": [
+    "./skills/",
+    "./commands/"
+  ],
   "agents": [
     "./agents/architect.md",
     "./agents/build-error-resolver.md",

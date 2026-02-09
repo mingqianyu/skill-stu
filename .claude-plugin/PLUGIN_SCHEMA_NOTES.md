@@ -1,3 +1,8 @@
+<!--
+  本文件：插件清单 schema 的补充说明（非官方文档）。
+  记录 Claude Code 插件清单校验器「未在公开文档写明但会强制执行」的规则，基于真实安装失败、校验行为与可用插件对比整理，用于避免静默损坏与反复回归。编辑 plugin.json 前请先读此文。
+-->
+
 # Plugin Manifest Schema Notes
 
 This document captures **undocumented but enforced constraints** of the Claude Code plugin manifest validator.

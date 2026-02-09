@@ -2,40 +2,103 @@
 description: Enforce test-driven development workflow. Scaffold interfaces, generate tests FIRST, then implement minimal code to pass. Ensure 80%+ coverage.
 ---
 
+<!-- frontmatter：description 概括本命令——强制 TDD 流程、先测试后实现、80%+ 覆盖率。 -->
+
 # TDD Command
+
+<!-- 标题：TDD 命令。对应 /tdd。 -->
 
 This command invokes the **tdd-guide** agent to enforce test-driven development methodology.
 
+<!-- 上面：本命令会调用 tdd-guide 子代理，由它来执行并监督“测试驱动开发”的流程。 -->
+
 ## What This Command Does
 
+<!-- 小节：本命令做哪几件事。 -->
+
 1. **Scaffold Interfaces** - Define types/interfaces first
+
+   <!-- 先搭接口：把要实现的函数/组件的输入输出类型、接口定义好，再写测试。 -->
+
 2. **Generate Tests First** - Write failing tests (RED)
+
+   <!-- 先写测试：写出会“失败”的测试（因为实现还不存在），即 RED 阶段。 -->
+
 3. **Implement Minimal Code** - Write just enough to pass (GREEN)
+
+   <!-- 最小实现：只写能让测试通过的最少代码，即 GREEN 阶段。 -->
+
 4. **Refactor** - Improve code while keeping tests green (REFACTOR)
+
+   <!-- 重构：在测试保持通过的前提下改进结构、命名、性能等，即 REFACTOR 阶段。 -->
+
 5. **Verify Coverage** - Ensure 80%+ test coverage
+
+   <!-- 验证覆盖率：跑覆盖率，确保达到 80% 以上，不足则补测。 -->
 
 ## When to Use
 
+<!-- 小节：何时使用 /tdd。 -->
+
 Use `/tdd` when:
+
 - Implementing new features
+
+  <!-- 在做新功能时，用 TDD 保证可测试、可回归。 -->
+
 - Adding new functions/components
+
+  <!-- 在加新函数或新组件时。 -->
+
 - Fixing bugs (write test that reproduces bug first)
+
+  <!-- 修 bug 时：先写一个“能复现该 bug”的失败测试，再修到通过。 -->
+
 - Refactoring existing code
+
+  <!-- 重构已有代码时：先有测试再改，避免改坏。 -->
+
 - Building critical business logic
 
+  <!-- 写关键业务逻辑时：必须测试覆盖。 -->
+
 ## How It Works
+
+<!-- 小节：具体怎么执行。tdd-guide 子代理会按下面 7 步做。 -->
 
 The tdd-guide agent will:
 
 1. **Define interfaces** for inputs/outputs
+
+   <!-- 定义输入输出的类型/接口（函数签名、数据结构）。 -->
+
 2. **Write tests that will FAIL** (because code doesn't exist yet)
+
+   <!-- 写会失败的测试（此时实现还不存在，所以测试应失败）。 -->
+
 3. **Run tests** and verify they fail for the right reason
+
+   <!-- 跑测试，确认失败原因是“未实现”而不是测试写错。 -->
+
 4. **Write minimal implementation** to make tests pass
+
+   <!-- 写最小实现，让测试通过。 -->
+
 5. **Run tests** and verify they pass
+
+   <!-- 再跑测试，确认通过。 -->
+
 6. **Refactor** code while keeping tests green
+
+   <!-- 重构代码，过程中测试始终保持通过。 -->
+
 7. **Check coverage** and add more tests if below 80%
 
+   <!-- 检查覆盖率，若低于 80% 则补充测试。 -->
+
 ## TDD Cycle
+
+<!-- 小节：TDD 循环。四个阶段循环进行。 -->
 
 ```
 RED → GREEN → REFACTOR → REPEAT
@@ -45,6 +108,8 @@ GREEN:    Write minimal code to pass
 REFACTOR: Improve code, keep tests passing
 REPEAT:   Next feature/scenario
 ```
+
+<!-- 上面：RED 写失败测试 → GREEN 写最少代码通过 → REFACTOR 改进且保持绿 → REPEAT 下一个需求/场景。 -->
 
 ## Example Usage
 

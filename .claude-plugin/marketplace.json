@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "市场清单：供 /plugin marketplace add 使用，列出本市场所含插件及 source/description 等。",
   "name": "everything-claude-code",
   "owner": {
     "name": "Affaan Mustafa",

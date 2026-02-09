@@ -2,6 +2,8 @@
 description: Generate and run end-to-end tests with Playwright. Creates test journeys, runs tests, captures screenshots/videos/traces, and uploads artifacts.
 ---
 
+<!-- 本命令：/e2e。调用 e2e-runner 子代理，用 Playwright 生成、维护并执行端到端测试；支持多浏览器、截图/录像/追踪、不稳定测试识别与 CI 集成。 -->
+
 # E2E Command
 
 This command invokes the **e2e-runner** agent to generate, maintain, and execute end-to-end tests using Playwright.

@@ -2,6 +2,8 @@
 description: Comprehensive Go code review for idiomatic patterns, concurrency safety, error handling, and security. Invokes the go-reviewer agent.
 ---
 
+<!-- 本命令：/go-review。调用 go-reviewer 子代理，对 Go 代码做全面审查：惯用法、并发安全、错误处理、安全（注入、竞态、凭证等），并按严重程度分类报告。 -->
+
 # Go Code Review
 
 This command invokes the **go-reviewer** agent for comprehensive Go-specific code review.

@@ -1,3 +1,5 @@
+<!-- 本命令：/sessions。管理 Claude Code 会话历史：列出、加载、别名、编辑 ~/.claude/sessions/ 下的会话；依赖 scripts/lib 下的 session-manager 与 session-aliases。 -->
+
 # Sessions Command
 
 Manage Claude Code session history - list, load, alias, and edit sessions stored in `~/.claude/sessions/`.

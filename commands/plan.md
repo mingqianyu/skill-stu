@@ -2,6 +2,8 @@
 description: Restate requirements, assess risks, and create step-by-step implementation plan. WAIT for user CONFIRM before touching any code.
 ---
 
+<!-- 本命令：/plan。调用 planner 子代理：重述需求、识别风险、拆解实施步骤并生成计划；必须等用户确认后才动代码。 -->
+
 # Plan Command
 
 This command invokes the **planner** agent to create a comprehensive implementation plan before writing any code.

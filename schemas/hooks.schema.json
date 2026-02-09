@@ -1,14 +1,12 @@
 {
+  "_comment_zh": "钩子配置的 JSON Schema：校验 hooks.json 结构；支持 PreToolUse/PostToolUse/PreCompact/SessionStart/SessionEnd/Stop/Notification/SubagentStop 等事件类型。",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Claude Code Hooks Configuration",
   "description": "Configuration for Claude Code hooks. Event types are validated at runtime and must be one of: PreToolUse, PostToolUse, PreCompact, SessionStart, SessionEnd, Stop, Notification, SubagentStop",
   "$defs": {
     "hookItem": {
       "type": "object",
-      "required": [
-        "type",
-        "command"
-      ],
+      "required": ["type", "command"],
       "properties": {
         "type": {
           "type": "string"
@@ -30,10 +28,7 @@
     },
     "matcherEntry": {
       "type": "object",
-      "required": [
-        "matcher",
-        "hooks"
-      ],
+      "required": ["matcher", "hooks"],
       "properties": {
         "matcher": {
           "type": "string"
@@ -67,9 +62,7 @@
           }
         }
       },
-      "required": [
-        "hooks"
-      ]
+      "required": ["hooks"]
     },
     {
       "type": "array",

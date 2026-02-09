@@ -2,6 +2,8 @@
 description: Comprehensive Python code review for PEP 8 compliance, type hints, security, and Pythonic idioms. Invokes the python-reviewer agent.
 ---
 
+<!-- 本命令：/python-review。调用 python-reviewer 子代理，对 Python 代码做全面审查：PEP 8、类型注解、安全（注入、eval/exec、pickle 等）、Python 惯用法，并按严重程度分类。 -->
+
 # Python Code Review
 
 This command invokes the **python-reviewer** agent for comprehensive Python-specific code review.

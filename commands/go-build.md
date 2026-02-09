@@ -2,6 +2,8 @@
 description: Fix Go build errors, go vet warnings, and linter issues incrementally. Invokes the go-build-resolver agent for minimal, surgical fixes.
 ---
 
+<!-- 本命令：/go-build。调用 go-build-resolver 子代理，逐步修复 Go 构建错误、go vet 与 linter 问题，每次只修一处并重新跑构建验证。 -->
+
 # Go Build and Fix
 
 This command invokes the **go-build-resolver** agent to incrementally fix Go build errors with minimal changes.

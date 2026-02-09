@@ -4,6 +4,8 @@ description: Export instincts for sharing with teammates or other projects
 command: /instinct-export
 ---
 
+<!-- 本命令：/instinct-export。将 continuous-learning-v2 学到的“直觉”导出为可分享格式（如 YAML），便于与团队或其它项目共享；会脱敏（去掉会话 ID、本机路径等）。 -->
+
 # Instinct Export Command
 
 Exports instincts to a shareable format. Perfect for:

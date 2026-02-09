@@ -4,6 +4,8 @@ description: Cluster related instincts into skills, commands, or agents
 command: true
 ---
 
+<!-- 本命令：/evolve。将 continuous-learning-v2 学到的“直觉”聚类成更高层的技能、命令或代理：读 homunculus/instincts，按领域/触发/动作关系分组，生成 evolved 下的 commands/skills/agents 文件。 -->
+
 # Evolve Command
 
 ## Implementation

@@ -4,6 +4,8 @@ description: Analyze local git history to extract coding patterns and generate S
 allowed_tools: ["Bash", "Read", "Write", "Grep", "Glob"]
 ---
 
+<!-- 本命令：/skill-create。本地分析 git 历史，提取提交约定、共变文件、工作流等模式，生成 SKILL.md 供 Claude 学习团队实践；可选 --instincts 同时为 continuous-learning-v2 生成直觉。 -->
+
 # /skill-create - Local Skill Generation
 
 Analyze your repository's git history to extract coding patterns and generate SKILL.md files that teach Claude your team's practices.

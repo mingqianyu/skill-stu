@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "Markdownlint 配置：启用默认规则，关闭行宽/允许 HTML/首行标题等规则，标题重复仅在同级内检查",
   "default": true,
   "MD013": false,
   "MD033": false,
@@ -11,7 +12,5 @@
   "MD026": false,
   "MD029": false,
   "MD060": false,
-  "MD024": {
-    "siblings_only": true
-  }
+  "MD024": { "siblings_only": true }
 }

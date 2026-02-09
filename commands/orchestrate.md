@@ -1,3 +1,5 @@
+<!-- 本命令：/orchestrate。按预设工作流顺序调用多个子代理（如 feature: planner→tdd-guide→code-reviewer→security-reviewer），用交接文档在 agent 间传递上下文，适合复杂任务。 -->
+
 # Orchestrate Command
 
 Sequential agent workflow for complex tasks.
