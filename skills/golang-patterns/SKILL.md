@@ -3,11 +3,17 @@ name: golang-patterns
 description: Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications.
 ---
 
+<!-- 本技能：Go 开发模式。惯用法、简洁性、零值可用、接受接口返回结构体、错误包装等。 -->
+
 # Go Development Patterns
 
 Idiomatic Go patterns and best practices for building robust, efficient, and maintainable applications.
 
+<!-- 构建健壮、高效、可维护应用的 Go 惯用模式与最佳实践。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写新 Go 代码、代码审查、重构、设计包/模块时启用。 -->
 
 - Writing new Go code
 - Reviewing Go code
@@ -16,7 +22,11 @@ Idiomatic Go patterns and best practices for building robust, efficient, and mai
 
 ## Core Principles
 
+<!-- 小节：核心原则。 -->
+
 ### 1. Simplicity and Clarity
+
+<!-- 简洁与清晰：Go 倾向简单直接，避免过度聪明。 -->
 
 Go favors simplicity over cleverness. Code should be obvious and easy to read.
 
@@ -43,6 +53,8 @@ func GetUser(id string) (*User, error) {
 ```
 
 ### 2. Make the Zero Value Useful
+
+<!-- 零值可用：类型设计成不初始化也能安全使用（如 Counter、bytes.Buffer）。 -->
 
 Design types so their zero value is immediately usable without initialization.
 
@@ -71,6 +83,8 @@ type BadCounter struct {
 
 ### 3. Accept Interfaces, Return Structs
 
+<!-- 接受接口、返回具体类型：便于测试与扩展，避免返回接口隐藏实现。 -->
+
 Functions should accept interface parameters and return concrete types.
 
 ```go
@@ -91,7 +105,11 @@ func ProcessData(r io.Reader) (io.Reader, error) {
 
 ## Error Handling Patterns
 
+<!-- 小节：错误处理模式。 -->
+
 ### Error Wrapping with Context
+
+<!-- 用 fmt.Errorf 与 %w 包装错误并带上上下文。 -->
 
 ```go
 // Good: Wrap errors with context

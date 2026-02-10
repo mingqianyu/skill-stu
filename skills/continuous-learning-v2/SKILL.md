@@ -4,11 +4,17 @@ description: Instinct-based learning system that observes sessions via hooks, cr
 version: 2.0.0
 ---
 
+<!-- 本技能：持续学习 v2。基于“本能(instinct)”的学习：用钩子观察会话、生成带置信度的原子行为、再聚类为 skill/command/agent。 -->
+
 # Continuous Learning v2 - Instinct-Based Architecture
 
 An advanced learning system that turns your Claude Code sessions into reusable knowledge through atomic "instincts" - small learned behaviors with confidence scoring.
 
+<!-- 将会话转化为可复用知识：原子“本能”+ 置信度。 -->
+
 ## What's New in v2
+
+<!-- v2 新特性：钩子观察、后台 Haiku 分析、原子 instinct、置信度、演化与分享。 -->
 
 | Feature | v1 | v2 |
 |---------|----|----|
@@ -22,6 +28,8 @@ An advanced learning system that turns your Claude Code sessions into reusable k
 ## The Instinct Model
 
 An instinct is a small learned behavior:
+
+<!-- 本能：一个触发条件 + 一个动作，带置信度与领域标签。 -->
 
 ```yaml
 ---
@@ -44,11 +52,24 @@ Use functional patterns over classes when appropriate.
 
 **Properties:**
 - **Atomic** — one trigger, one action
+
+  <!-- 原子：一个触发、一个动作。 -->
+
 - **Confidence-weighted** — 0.3 = tentative, 0.9 = near certain
+
+  <!-- 置信度：0.3 试探、0.9 近乎确定。 -->
+
 - **Domain-tagged** — code-style, testing, git, debugging, workflow, etc.
+
+  <!-- 领域标签：便于筛选与聚类。 -->
+
 - **Evidence-backed** — tracks what observations created it
 
+  <!-- 有证据：记录哪些观察生成了该本能。 -->
+
 ## How It Works
+
+<!-- 流程：钩子写入 observations → 观察者分析 → 生成/更新 instincts → /evolve 聚类到 evolved/。 -->
 
 ```
 Session Activity
@@ -91,6 +112,8 @@ Session Activity
 ## Quick Start
 
 ### 1. Enable Observation Hooks
+
+<!-- 在 settings.json 中配置 PreToolUse/PostToolUse 调用 observe.sh。 -->
 
 Add to your `~/.claude/settings.json`.
 
@@ -144,12 +167,16 @@ Add to your `~/.claude/settings.json`.
 
 The Python CLI will create these automatically, but you can also create them manually:
 
+<!-- 手动创建 homunculus 目录：observations.jsonl、instincts/personal|inherited、evolved/agents|skills|commands。 -->
+
 ```bash
 mkdir -p ~/.claude/homunculus/{instincts/{personal,inherited},evolved/{agents,skills,commands}}
 touch ~/.claude/homunculus/observations.jsonl
 ```
 
 ### 3. Use the Instinct Commands
+
+<!-- 常用命令：状态、演化、导出、导入。 -->
 
 ```bash
 /instinct-status     # Show learned instincts with confidence scores
@@ -170,6 +197,8 @@ touch ~/.claude/homunculus/observations.jsonl
 ## Configuration
 
 Edit `config.json`:
+
+<!-- observation 观察存储与归档；instincts 路径与置信度；observer 后台分析；evolution 聚类与输出路径。 -->
 
 ```json
 {
@@ -207,6 +236,8 @@ Edit `config.json`:
 
 ## File Structure
 
+<!-- homunculus 目录下：identity、observations、instincts、evolved。 -->
+
 ```
 ~/.claude/homunculus/
 ├── identity.json           # Your profile, technical level
@@ -223,6 +254,8 @@ Edit `config.json`:
 
 ## Integration with Skill Creator
 
+<!-- Skill Creator 可同时生成 SKILL.md 与 instinct 集合；repo 分析得到的 instinct 带 source_repo。 -->
+
 When you use the [Skill Creator GitHub App](https://skill-creator.app), it now generates **both**:
 - Traditional SKILL.md files (for backward compatibility)
 - Instinct collections (for v2 learning system)
@@ -232,6 +265,8 @@ Instincts from repo analysis have `source: "repo-analysis"` and include the sour
 ## Confidence Scoring
 
 Confidence evolves over time:
+
+<!-- 置信度随观察与纠正动态变化；高于 auto_approve_threshold 可自动应用。 -->
 
 | Score | Meaning | Behavior |
 |-------|---------|----------|
@@ -252,6 +287,8 @@ Confidence evolves over time:
 
 ## Why Hooks vs Skills for Observation?
 
+<!-- 用钩子观察：100% 触发，不依赖 skill 是否被选中。 -->
+
 > "v1 relied on skills to observe. Skills are probabilistic—they fire ~50-80% of the time based on Claude's judgment."
 
 Hooks fire **100% of the time**, deterministically. This means:
@@ -261,12 +298,16 @@ Hooks fire **100% of the time**, deterministically. This means:
 
 ## Backward Compatibility
 
+<!-- v1 的 learned/ 与 Stop 钩子仍可用，可与 v2 并行。 -->
+
 v2 is fully compatible with v1:
 - Existing `~/.claude/skills/learned/` skills still work
 - Stop hook still runs (but now also feeds into v2)
 - Gradual migration path: run both in parallel
 
 ## Privacy
+
+<!-- 观察数据仅本地；导出的是模式(instinct)，不含代码或对话内容。 -->
 
 - Observations stay **local** on your machine
 - Only **instincts** (patterns) can be exported
@@ -282,3 +323,5 @@ v2 is fully compatible with v1:
 ---
 
 *Instinct-based learning: teaching Claude your patterns, one observation at a time.*
+
+<!-- 本能学习：通过每次观察，一点一点教会 Claude 你的习惯。 -->

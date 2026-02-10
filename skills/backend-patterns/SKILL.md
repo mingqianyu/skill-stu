@@ -3,13 +3,21 @@ name: backend-patterns
 description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.
 ---
 
+<!-- 本技能：后端开发模式。提供 Node/Express/Next.js 下的 API 设计、数据库与缓存、错误处理、鉴权、限流、队列、日志等最佳实践。 -->
+
 # Backend Development Patterns
 
 Backend architecture patterns and best practices for scalable server-side applications.
 
+<!-- 后端架构模式与可扩展服务端应用的最佳实践。 -->
+
 ## API Design Patterns
 
+<!-- 小节：API 设计模式。 -->
+
 ### RESTful API Structure
+
+<!-- 子节：REST 风格 API 的 URL 与动词约定。 -->
 
 ```typescript
 // ✅ Resource-based URLs
@@ -24,7 +32,11 @@ DELETE /api/markets/:id             # Delete resource
 GET /api/markets?status=active&sort=volume&limit=20&offset=0
 ```
 
+<!-- 使用查询参数做过滤、排序、分页。 -->
+
 ### Repository Pattern
+
+<!-- 子节：仓储模式——把数据访问抽象成接口，便于换实现与测试。 -->
 
 ```typescript
 // Abstract data access logic
@@ -58,7 +70,11 @@ class SupabaseMarketRepository implements MarketRepository {
 }
 ```
 
+<!-- SupabaseMarketRepository 实现 MarketRepository，封装 Supabase 查询。 -->
+
 ### Service Layer Pattern
+
+<!-- 子节：服务层模式——业务逻辑与数据访问分离，服务调用仓储。 -->
 
 ```typescript
 // Business logic separated from data access
@@ -87,7 +103,11 @@ class MarketService {
 }
 ```
 
+<!-- MarketService 依赖 MarketRepository，在 searchMarkets 里做向量检索再补全数据。 -->
+
 ### Middleware Pattern
+
+<!-- 子节：中间件模式——在请求/响应管道中做鉴权、日志等，再交给业务 handler。 -->
 
 ```typescript
 // Request/response processing pipeline
@@ -115,9 +135,15 @@ export default withAuth(async (req, res) => {
 })
 ```
 
+<!-- withAuth 高阶函数包装 handler，验证 Bearer token 并注入 req.user。 -->
+
 ## Database Patterns
 
+<!-- 小节：数据库相关模式。 -->
+
 ### Query Optimization
+
+<!-- 子节：查询优化——只查需要的列、避免 select *。 -->
 
 ```typescript
 // ✅ GOOD: Select only needed columns
@@ -134,7 +160,11 @@ const { data } = await supabase
   .select('*')
 ```
 
+<!-- 只选 id,name,status,volume 等需要的列，减少传输与解析。 -->
+
 ### N+1 Query Prevention
+
+<!-- 子节：避免 N+1——先批量查关联数据再在内存里组装，不要循环里逐条查。 -->
 
 ```typescript
 // ❌ BAD: N+1 query problem
@@ -154,7 +184,11 @@ markets.forEach(market => {
 })
 ```
 
+<!-- 一次 getUsers(creatorIds) 后用 Map 做 O(1) 查找，避免 N 次查询。 -->
+
 ### Transaction Pattern
+
+<!-- 子节：事务模式——多步写操作用 RPC 或事务保证原子性，失败时回滚。 -->
 
 ```typescript
 async function createMarketWithPosition(
@@ -192,9 +226,15 @@ END;
 $$;
 ```
 
+<!-- 用 Supabase 的 RPC 调用 plpgsql 函数，在数据库内完成插入与异常回滚。 -->
+
 ## Caching Strategies
 
+<!-- 小节：缓存策略。 -->
+
 ### Redis Caching Layer
+
+<!-- 子节：用 Redis 做缓存层，先查缓存再查库，命中则写回缓存并设置 TTL。 -->
 
 ```typescript
 class CachedMarketRepository implements MarketRepository {
@@ -228,7 +268,11 @@ class CachedMarketRepository implements MarketRepository {
 }
 ```
 
+<!-- CachedMarketRepository 装饰 baseRepo，读时先 redis 再 DB，写时可调用 invalidateCache。 -->
+
 ### Cache-Aside Pattern
+
+<!-- 子节：Cache-Aside：先读缓存，未命中则读 DB 并回填缓存。 -->
 
 ```typescript
 async function getMarketWithCache(id: string): Promise<Market> {
@@ -250,9 +294,15 @@ async function getMarketWithCache(id: string): Promise<Market> {
 }
 ```
 
+<!-- 逻辑：get → cache → 无则 DB → 写入 cache → 返回。 -->
+
 ## Error Handling Patterns
 
+<!-- 小节：错误处理模式。 -->
+
 ### Centralized Error Handler
+
+<!-- 子节：统一错误处理——区分 ApiError、Zod 校验错误与未知错误，返回对应 HTTP 状态与 JSON。 -->
 
 ```typescript
 class ApiError extends Error {
@@ -302,7 +352,11 @@ export async function GET(request: Request) {
 }
 ```
 
+<!-- errorHandler 根据错误类型返回 4xx/5xx 与统一结构的 JSON。 -->
+
 ### Retry with Exponential Backoff
+
+<!-- 子节：带指数退避的重试——失败后按 1s、2s、4s 延迟再试，避免雪崩。 -->
 
 ```typescript
 async function fetchWithRetry<T>(
@@ -332,9 +386,15 @@ async function fetchWithRetry<T>(
 const data = await fetchWithRetry(() => fetchFromAPI())
 ```
 
+<!-- fetchWithRetry 在 maxRetries 次内重试，间隔指数增长。 -->
+
 ## Authentication & Authorization
 
+<!-- 小节：认证与授权。 -->
+
 ### JWT Token Validation
+
+<!-- 子节：JWT 校验——verifyToken 解析并验证签名，requireAuth 从 Header 取 token 并校验。 -->
 
 ```typescript
 import jwt from 'jsonwebtoken'
@@ -374,7 +434,11 @@ export async function GET(request: Request) {
 }
 ```
 
+<!-- GET 里先 requireAuth 得到 user，再按 user.userId 取数据。 -->
+
 ### Role-Based Access Control
+
+<!-- 子节：基于角色的访问控制——角色与权限映射，requirePermission 高阶函数校验权限后再执行 handler。 -->
 
 ```typescript
 type Permission = 'read' | 'write' | 'delete' | 'admin'
@@ -417,9 +481,15 @@ export const DELETE = requirePermission('delete')(
 )
 ```
 
+<!-- requirePermission('delete') 返回包装函数，内部检查 hasPermission 再调用业务 handler。 -->
+
 ## Rate Limiting
 
+<!-- 小节：限流。 -->
+
 ### Simple In-Memory Rate Limiter
+
+<!-- 子节：简单内存限流——按 identifier（如 IP）在滑动窗口内计数，超限返回 429。 -->
 
 ```typescript
 class RateLimiter {
@@ -465,9 +535,15 @@ export async function GET(request: Request) {
 }
 ```
 
+<!-- checkLimit(ip, 100, 60000) 表示每 IP 每分钟最多 100 次。 -->
+
 ## Background Jobs & Queues
 
+<!-- 小节：后台任务与队列。 -->
+
 ### Simple Queue Pattern
+
+<!-- 子节：简单队列——add 入队并触发 process，process 循环取 job 执行，失败只打日志。 -->
 
 ```typescript
 class JobQueue<T> {
@@ -520,9 +596,15 @@ export async function POST(request: Request) {
 }
 ```
 
+<!-- POST 只负责把任务入队并立即返回，不阻塞请求。 -->
+
 ## Logging & Monitoring
 
+<!-- 小节：日志与监控。 -->
+
 ### Structured Logging
+
+<!-- 子节：结构化日志——JSON 输出，带 timestamp、level、message 和上下文，便于采集与检索。 -->
 
 ```typescript
 interface LogContext {
@@ -584,4 +666,8 @@ export async function GET(request: Request) {
 }
 ```
 
+<!-- 使用 requestId、method、path 等上下文，错误时记录 error 与 stack。 -->
+
 **Remember**: Backend patterns enable scalable, maintainable server-side applications. Choose patterns that fit your complexity level.
+
+<!-- 记住：后端模式用于可扩展、可维护的服务端应用，按项目复杂度选用合适模式。 -->

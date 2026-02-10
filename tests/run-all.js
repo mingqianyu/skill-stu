@@ -3,6 +3,9 @@
  * Run all tests
  *
  * Usage: node tests/run-all.js
+ *
+ * 中文：运行全部测试。依次执行 lib/utils.test.js、package-manager.test.js、hooks/hooks.test.js，
+ * 汇总通过/失败数并输出最终结果，有失败则 process.exit(1)。
  */
 
 const { execSync } = require('child_process');

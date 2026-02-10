@@ -3,11 +3,17 @@ name: python-patterns
 description: Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable Python applications.
 ---
 
+<!-- 本技能：Python 开发模式。Pythonic 惯用法、PEP 8、类型注解与可维护实践。 -->
+
 # Python Development Patterns
 
 Idiomatic Python patterns and best practices for building robust, efficient, and maintainable applications.
 
+<!-- 构建健壮、高效、可维护应用的 Python 惯用模式。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写/审/重构 Python 代码、设计包与模块时启用。 -->
 
 - Writing new Python code
 - Reviewing Python code
@@ -16,7 +22,11 @@ Idiomatic Python patterns and best practices for building robust, efficient, and
 
 ## Core Principles
 
+<!-- 小节：可读性、显式优于隐式、EAFP。 -->
+
 ### 1. Readability Counts
+
+<!-- 可读性优先：代码应一目了然。 -->
 
 Python prioritizes readability. Code should be obvious and easy to understand.
 
@@ -33,6 +43,8 @@ def get_active_users(u):
 ```
 
 ### 2. Explicit is Better Than Implicit
+
+<!-- 显式优于隐式：避免魔法，配置与行为要清晰。 -->
 
 Avoid magic; be clear about what your code does.
 
@@ -51,6 +63,8 @@ some_module.setup()  # What does this do?
 ```
 
 ### 3. EAFP - Easier to Ask Forgiveness Than Permission
+
+<!-- EAFP：先做再捕获异常，优于先检查再执行（LBYL）。 -->
 
 Python prefers exception handling over checking conditions.
 
@@ -71,6 +85,8 @@ def get_value(dictionary: dict, key: str) -> Any:
 ```
 
 ## Type Hints
+
+<!-- 类型注解：函数参数与返回值、Optional、泛型。 -->
 
 ### Basic Type Annotations
 

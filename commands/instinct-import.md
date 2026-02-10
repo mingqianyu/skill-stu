@@ -4,17 +4,23 @@ description: Import instincts from teammates, Skill Creator, or other sources
 command: true
 ---
 
-<!-- 本命令：/instinct-import。从文件或 URL 导入他人导出的直觉，合并到 ~/.claude/homunculus/instincts/inherited/；可来自队友、Skill Creator 或社区集合。 -->
+<!-- frontmatter：命令名 instinct-import；从队友、Skill Creator 或其它来源导入直觉。 -->
 
 # Instinct Import Command
 
+<!-- 标题：直觉导入命令。对应 /instinct-import。 -->
+
 ## Implementation
+
+<!-- 小节：实现方式。调用 continuous-learning-v2 的 Python 脚本，传入文件或 URL。 -->
 
 Run the instinct CLI using the plugin root path:
 
 ```bash
 python3 "${CLAUDE_PLUGIN_ROOT}/skills/continuous-learning-v2/scripts/instinct-cli.py" import <file-or-url> [--dry-run] [--force] [--min-confidence 0.7]
 ```
+
+<!-- 上面：import 子命令；file-or-url 为本地路径或 URL；--dry-run 只预览不写入；--force 覆盖冲突；--min-confidence 只导入不低于某置信度的。 -->
 
 Or if `CLAUDE_PLUGIN_ROOT` is not set (manual installation):
 
@@ -23,12 +29,28 @@ python3 ~/.claude/skills/continuous-learning-v2/scripts/instinct-cli.py import <
 ```
 
 Import instincts from:
+
+<!-- 导入来源可以是： -->
+
 - Teammates' exports
+
+  <!-- 队友用 /instinct-export 导出的文件。 -->
+
 - Skill Creator (repo analysis)
+
+  <!-- Skill Creator 对仓库分析产出的直觉。 -->
+
 - Community collections
+
+  <!-- 社区分享的直觉集合。 -->
+
 - Previous machine backups
 
+  <!-- 自己之前在其他机器上的导出备份。 -->
+
 ## Usage
+
+<!-- 小节：用法示例。 -->
 
 ```
 /instinct-import team-instincts.yaml
@@ -36,13 +58,31 @@ Import instincts from:
 /instinct-import --from-skill-creator acme/webapp
 ```
 
+<!-- 上面：本地文件、远程 URL、或从 Skill Creator 指定 org/repo 导入。 -->
+
 ## What to Do
 
+<!-- 小节：执行步骤。 -->
+
 1. Fetch the instinct file (local path or URL)
+
+   <!-- 第 1 步：获取直觉文件（读本地或下载 URL）。 -->
+
 2. Parse and validate the format
+
+   <!-- 第 2 步：解析并校验格式（YAML/JSON 等）。 -->
+
 3. Check for duplicates with existing instincts
+
+   <!-- 第 3 步：和已有直觉比对，找出重复或冲突。 -->
+
 4. Merge or add new instincts
+
+   <!-- 第 4 步：合并或新增（按策略：保留高置信度、或询问用户）。 -->
+
 5. Save to `~/.claude/homunculus/instincts/inherited/`
+
+   <!-- 第 5 步：写入 inherited 目录，与 personal 区分。 -->
 
 ## Import Process
 

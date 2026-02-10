@@ -4,11 +4,17 @@ description: Formal evaluation framework for Claude Code sessions implementing e
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 
+<!-- 本技能：评估框架（Eval Harness）。在 Claude Code 会话中实践“评估驱动开发(EDD)”：先定义预期再实现、持续跑评估、用 pass@k 度量。 -->
+
 # Eval Harness Skill
 
 A formal evaluation framework for Claude Code sessions, implementing eval-driven development (EDD) principles.
 
+<!-- 为 Claude Code 会话提供的正式评估框架，贯彻 EDD。 -->
+
 ## Philosophy
+
+<!-- 理念：把评估当作 AI 开发的“单元测试”——先定义行为、持续跑、追踪回归、用 pass@k 衡量可靠性。 -->
 
 Eval-Driven Development treats evals as the "unit tests of AI development":
 - Define expected behavior BEFORE implementation
@@ -18,7 +24,11 @@ Eval-Driven Development treats evals as the "unit tests of AI development":
 
 ## Eval Types
 
+<!-- 小节：评估类型。 -->
+
 ### Capability Evals
+
+<!-- 能力评估：检验 Claude 能否完成某类任务，用任务描述与成功标准。 -->
 Test if Claude can do something it couldn't before:
 ```markdown
 [CAPABILITY EVAL: feature-name]
@@ -31,6 +41,9 @@ Expected Output: Description of expected result
 ```
 
 ### Regression Evals
+
+<!-- 回归评估：对比基线（SHA/checkpoint），确保改动不破坏已有测试。 -->
+
 Ensure changes don't break existing functionality:
 ```markdown
 [REGRESSION EVAL: feature-name]
@@ -44,7 +57,11 @@ Result: X/Y passed (previously Y/Y)
 
 ## Grader Types
 
+<!-- 小节：评分方式。 -->
+
 ### 1. Code-Based Grader
+
+<!-- 代码评分：用 grep、npm test、build 等确定性检查。 -->
 Deterministic checks using code:
 ```bash
 # Check if file contains expected pattern
@@ -58,6 +75,8 @@ npm run build && echo "PASS" || echo "FAIL"
 ```
 
 ### 2. Model-Based Grader
+
+<!-- 模型评分：用 Claude 对开放式输出打分并给出理由。 -->
 Use Claude to evaluate open-ended outputs:
 ```markdown
 [MODEL GRADER PROMPT]
@@ -72,6 +91,8 @@ Reasoning: [explanation]
 ```
 
 ### 3. Human Grader
+
+<!-- 人工评分：标记需人工复核的变更与风险等级。 -->
 Flag for manual review:
 ```markdown
 [HUMAN REVIEW REQUIRED]
@@ -82,7 +103,11 @@ Risk Level: LOW/MEDIUM/HIGH
 
 ## Metrics
 
+<!-- 小节：度量。 -->
+
 ### pass@k
+
+<!-- pass@k：k 次尝试中至少成功一次；常用 pass@3 > 90%。 -->
 "At least one success in k attempts"
 - pass@1: First attempt success rate
 - pass@3: Success within 3 attempts

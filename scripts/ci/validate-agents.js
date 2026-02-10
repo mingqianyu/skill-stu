@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Validate agent markdown files have required frontmatter
+ *
+ * 中文：校验 agents/*.md 存在且含必需 frontmatter（如 model、tools）。
  */
 
 const fs = require('fs');

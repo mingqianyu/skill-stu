@@ -2,11 +2,13 @@
 
 /**
  * Stop Hook: Check for console.log statements in modified files
- * 
+ *
  * This hook runs after each response and checks if any modified
  * JavaScript/TypeScript files contain console.log statements.
  * It provides warnings to help developers remember to remove
  * debug statements before committing.
+ *
+ * 中文：Stop 钩子。在每次响应后检查 git 已修改的 .ts/.tsx/.js/.jsx 文件中是否含 console.log，有则输出警告。
  */
 
 const { execSync } = require('child_process');

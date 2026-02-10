@@ -3,11 +3,17 @@ name: django-patterns
 description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
 ---
 
+<!-- 本技能：Django 开发模式。含项目结构、配置拆分、DRF API、ORM、缓存、信号、中间件等生产级实践。 -->
+
 # Django Development Patterns
 
 Production-grade Django architecture patterns for scalable, maintainable applications.
 
+<!-- 可扩展、可维护的 Django 生产级架构模式。 -->
+
 ## When to Activate
+
+<!-- 适用场景：做 Django 应用、DRF API、ORM/模型、项目结构、缓存/信号/中间件时启用。 -->
 
 - Building Django web applications
 - Designing Django REST Framework APIs
@@ -17,7 +23,11 @@ Production-grade Django architecture patterns for scalable, maintainable applica
 
 ## Project Structure
 
+<!-- 小节：项目结构。 -->
+
 ### Recommended Layout
+
+<!-- 推荐布局：config/settings 拆分、apps 下按业务分 app（users、products 等）。 -->
 
 ```
 myproject/
@@ -50,6 +60,8 @@ myproject/
 ```
 
 ### Split Settings Pattern
+
+<!-- 配置拆分：base + development/production/test，用环境变量与 env 读敏感配置。 -->
 
 ```python
 # config/settings/base.py

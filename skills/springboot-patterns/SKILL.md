@@ -3,11 +3,17 @@ name: springboot-patterns
 description: Spring Boot architecture patterns, REST API design, layered services, data access, caching, async processing, and logging. Use for Java Spring Boot backend work.
 ---
 
+<!-- 本技能：Spring Boot 开发模式。REST API、分层、数据访问、缓存、异步与日志。 -->
+
 # Spring Boot Development Patterns
 
 Spring Boot architecture and API patterns for scalable, production-grade services.
 
+<!-- 可扩展、生产级 Spring Boot 架构与 API 模式。 -->
+
 ## REST API Structure
+
+<!-- 小节：@RestController、分页、@Valid、ResponseEntity。 -->
 
 ```java
 @RestController
@@ -38,6 +44,8 @@ class MarketController {
 
 ## Repository Pattern (Spring Data JPA)
 
+<!-- 继承 JpaRepository、@Query 自定义查询。 -->
+
 ```java
 public interface MarketRepository extends JpaRepository<MarketEntity, Long> {
   @Query("select m from MarketEntity m where m.status = :status order by m.volume desc")
@@ -46,6 +54,8 @@ public interface MarketRepository extends JpaRepository<MarketEntity, Long> {
 ```
 
 ## Service Layer with Transactions
+
+<!-- @Service、@Transactional 事务边界。 -->
 
 ```java
 @Service

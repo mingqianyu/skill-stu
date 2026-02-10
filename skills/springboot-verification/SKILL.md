@@ -3,11 +3,17 @@ name: springboot-verification
 description: Verification loop for Spring Boot projects: build, static analysis, tests with coverage, security scans, and diff review before release or PR.
 ---
 
+<!-- 本技能：Spring Boot 验证闭环。PR/大改/部署前：构建、静态分析、测试与覆盖率、安全扫描。 -->
+
 # Spring Boot Verification Loop
 
 Run before PRs, after major changes, and pre-deploy.
 
+<!-- 在提 PR、大改或部署前运行。 -->
+
 ## Phase 1: Build
+
+<!-- 阶段 1：mvn clean verify 或 gradle assemble，失败则停。 -->
 
 ```bash
 mvn -T 4 clean verify -DskipTests
@@ -18,6 +24,8 @@ mvn -T 4 clean verify -DskipTests
 If build fails, stop and fix.
 
 ## Phase 2: Static Analysis
+
+<!-- 阶段 2：spotbugs、pmd、checkstyle。 -->
 
 Maven (common plugins):
 ```bash
@@ -31,6 +39,8 @@ Gradle (if configured):
 
 ## Phase 3: Tests + Coverage
 
+<!-- 阶段 3：test、jacoco 报告，确保 80%+。 -->
+
 ```bash
 mvn -T 4 test
 mvn jacoco:report   # verify 80%+ coverage
@@ -43,6 +53,8 @@ Report:
 - Coverage % (lines/branches)
 
 ## Phase 4: Security Scan
+
+<!-- 阶段 4：OWASP dependency-check、git secrets。 -->
 
 ```bash
 # Dependency CVEs

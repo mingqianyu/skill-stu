@@ -3,13 +3,21 @@ name: frontend-patterns
 description: Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.
 ---
 
+<!-- 本技能：前端开发模式。React/Next.js 组件、状态、性能与 UI 最佳实践。 -->
+
 # Frontend Development Patterns
 
 Modern frontend patterns for React, Next.js, and performant user interfaces.
 
+<!-- 面向 React、Next.js 与高性能 UI 的现代前端模式。 -->
+
 ## Component Patterns
 
+<!-- 小节：组件模式。 -->
+
 ### Composition Over Inheritance
+
+<!-- 组合优于继承：用 Card/CardHeader/CardBody 等小组件组合，而非继承基类。 -->
 
 ```typescript
 // ✅ GOOD: Component composition
@@ -38,6 +46,8 @@ export function CardBody({ children }: { children: React.ReactNode }) {
 ```
 
 ### Compound Components
+
+<!-- 复合组件：Tabs + TabList + Tab 通过 Context 共享状态，一起使用。 -->
 
 ```typescript
 interface TabsContextValue {
@@ -88,6 +98,8 @@ export function Tab({ id, children }: { id: string, children: React.ReactNode })
 ```
 
 ### Render Props Pattern
+
+<!-- 渲染属性：DataLoader 接收 children 函数，传入 data/loading/error 由调用方渲染。 -->
 
 ```typescript
 interface DataLoaderProps<T> {

@@ -5,11 +5,17 @@ model: haiku
 run_mode: background
 ---
 
+<!-- 本 agent：观察者。后台分析 observations.jsonl，识别模式并生成/更新 instinct 文件，使用 Haiku 控制成本。 -->
+
 # Observer Agent
 
 A background agent that analyzes observations from Claude Code sessions to detect patterns and create instincts.
 
+<!-- 后台 agent：读观察记录、检测模式、写出 instinct。 -->
+
 ## When to Run
+
+<!-- 运行时机：会话活动足够多、用户执行 /analyze-patterns、定时、或收到 SIGUSR1。 -->
 
 - After significant session activity (20+ tool calls)
 - When user runs `/analyze-patterns`
@@ -19,6 +25,8 @@ A background agent that analyzes observations from Claude Code sessions to detec
 ## Input
 
 Reads observations from `~/.claude/homunculus/observations.jsonl`:
+
+<!-- 输入：observations.jsonl 每行一条 JSON，含 timestamp、event、tool、input/output、session。 -->
 
 ```jsonl
 {"timestamp":"2025-01-22T10:30:00Z","event":"tool_start","session":"abc123","tool":"Edit","input":"..."}
@@ -30,6 +38,8 @@ Reads observations from `~/.claude/homunculus/observations.jsonl`:
 ## Pattern Detection
 
 Look for these patterns in observations:
+
+<!-- 检测四类模式：用户纠正、错误解决、重复工作流、工具偏好。 -->
 
 ### 1. User Corrections
 When a user's follow-up message corrects Claude's previous action:
@@ -67,6 +77,8 @@ When certain tools are consistently preferred:
 
 Creates/updates instincts in `~/.claude/homunculus/instincts/personal/`:
 
+<!-- 输出：在 instincts/personal/ 下创建或更新 .md 格式的 instinct，含 frontmatter 与 Evidence。 -->
+
 ```yaml
 ---
 id: prefer-grep-before-edit
@@ -90,6 +102,8 @@ Always use Grep to find the exact location before using Edit.
 ## Confidence Calculation
 
 Initial confidence based on observation frequency:
+
+<!-- 初始置信度按观察次数；之后随确认/反驳/长期未观察而增减。 -->
 - 1-2 observations: 0.3 (tentative)
 - 3-5 observations: 0.5 (moderate)
 - 6-10 observations: 0.7 (strong)
@@ -101,6 +115,8 @@ Confidence adjusts over time:
 - -0.02 per week without observation (decay)
 
 ## Important Guidelines
+
+<!-- 原则：保守、具体、记录证据、不包含代码、合并相似。 -->
 
 1. **Be Conservative**: Only create instincts for clear patterns (3+ observations)
 2. **Be Specific**: Narrow triggers are better than broad ones
@@ -131,6 +147,8 @@ Analysis:
 ## Integration with Skill Creator
 
 When instincts are imported from Skill Creator (repo analysis), they have:
+
+<!-- 从 Skill Creator 导入的 instinct 带 source_repo，可视为团队约定，初始置信度可设高一些。 -->
 - `source: "repo-analysis"`
 - `source_repo: "https://github.com/..."`
 

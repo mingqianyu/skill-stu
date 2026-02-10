@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "持续学习 v2 配置。observation: 观察存储路径、大小与归档；instincts: 个人/继承路径、置信度与衰减；observer: 后台分析开关与模式；evolution: 聚类阈值与输出路径；integration: Skill Creator API 与 v1 兼容。",
   "version": "2.0",
   "observation": {
     "enabled": true,

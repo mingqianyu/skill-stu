@@ -1,6 +1,8 @@
 /**
  * Session Aliases Library for Claude Code
  * Manages session aliases stored in ~/.claude/session-aliases.json
+ *
+ * 中文：会话别名库。读写 session-aliases.json，支持为会话起别名、列出与解析别名。
  */
 
 const fs = require('fs');

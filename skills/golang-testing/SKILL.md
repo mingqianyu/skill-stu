@@ -3,11 +3,17 @@ name: golang-testing
 description: Go testing patterns including table-driven tests, subtests, benchmarks, fuzzing, and test coverage. Follows TDD methodology with idiomatic Go practices.
 ---
 
+<!-- 本技能：Go 测试模式。表驱动测试、子测试、基准、fuzz、覆盖率，遵循 TDD 与 Go 惯用法。 -->
+
 # Go Testing Patterns
 
 Comprehensive Go testing patterns for writing reliable, maintainable tests following TDD methodology.
 
+<!-- 遵循 TDD 的 Go 测试模式，用于编写可靠、可维护的测试。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写新函数/方法、补覆盖率、写基准、写 fuzz、Go 项目 TDD 时启用。 -->
 
 - Writing new Go functions or methods
 - Adding test coverage to existing code
@@ -17,7 +23,11 @@ Comprehensive Go testing patterns for writing reliable, maintainable tests follo
 
 ## TDD Workflow for Go
 
+<!-- 小节：Go 下的 TDD 流程。 -->
+
 ### The RED-GREEN-REFACTOR Cycle
+
+<!-- 红-绿-重构：先写失败测试，最小实现通过，再重构并保持绿。 -->
 
 ```
 RED     → Write a failing test first
@@ -71,6 +81,8 @@ func Add(a, b int) int {
 ## Table-Driven Tests
 
 The standard pattern for Go tests. Enables comprehensive coverage with minimal code.
+
+<!-- 表驱动测试：Go 标准写法，用 []struct 多用例 + t.Run 子测试，覆盖全面且代码少。 -->
 
 ```go
 func TestAdd(t *testing.T) {

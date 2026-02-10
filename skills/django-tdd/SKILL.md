@@ -3,11 +3,17 @@ name: django-tdd
 description: Django testing strategies with pytest-django, TDD methodology, factory_boy, mocking, coverage, and testing Django REST Framework APIs.
 ---
 
+<!-- 本技能：Django TDD。用 pytest-django、factory_boy、mock 与覆盖率做测试驱动开发，含 DRF API 测试。 -->
+
 # Django Testing with TDD
 
 Test-driven development for Django applications using pytest, factory_boy, and Django REST Framework.
 
+<!-- 使用 pytest、factory_boy、DRF 的 Django 测试驱动开发。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写新 Django 应用、DRF API、测模型/视图/序列化器、搭建测试基础设施时启用。 -->
 
 - Writing new Django applications
 - Implementing Django REST Framework APIs
@@ -16,7 +22,11 @@ Test-driven development for Django applications using pytest, factory_boy, and D
 
 ## TDD Workflow for Django
 
+<!-- 小节：Django 下的 TDD 流程。 -->
+
 ### Red-Green-Refactor Cycle
+
+<!-- 红-绿-重构：先写失败测试，再实现通过，最后重构并保持测试绿。 -->
 
 ```python
 # Step 1: RED - Write failing test
@@ -34,7 +44,11 @@ def test_user_creation():
 
 ## Setup
 
+<!-- 小节：测试环境与配置。 -->
+
 ### pytest Configuration
+
+<!-- pytest.ini：DJANGO_SETTINGS_MODULE、testpaths、覆盖率、markers（slow、integration）。 -->
 
 ```ini
 # pytest.ini

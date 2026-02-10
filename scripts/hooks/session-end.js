@@ -6,6 +6,8 @@
  *
  * Runs when Claude session ends. Creates/updates session log file
  * with timestamp for continuity tracking.
+ *
+ * 中文：会话结束钩子。会话结束时创建或更新当日会话 .tmp 文件，记录开始/最后更新时间。
  */
 
 const path = require('path');

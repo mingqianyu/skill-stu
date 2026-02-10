@@ -4,6 +4,8 @@
  * Tests hook behavior in realistic scenarios with proper input/output handling.
  *
  * Run with: node tests/integration/hooks.test.js
+ *
+ * 中文：钩子脚本的集成测试。用模拟的 Claude Code 标准输入调用钩子，校验 JSON 输入输出与行为。
  */
 
 const assert = require('assert');

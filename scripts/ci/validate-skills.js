@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Validate skill directories have SKILL.md with required structure
+ *
+ * 中文：校验 skills 下各子目录均有 SKILL.md 且含必需 frontmatter（如 name、description）。
  */
 
 const fs = require('fs');

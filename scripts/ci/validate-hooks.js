@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Validate hooks.json schema
+ *
+ * 中文：校验 hooks/hooks.json 为合法 JSON 且钩子事件名、结构符合约定。
  */
 
 const fs = require('fs');

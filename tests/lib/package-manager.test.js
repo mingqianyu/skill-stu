@@ -2,6 +2,8 @@
  * Tests for scripts/lib/package-manager.js
  *
  * Run with: node tests/lib/package-manager.test.js
+ *
+ * 中文：scripts/lib/package-manager.js 的单元测试。覆盖 PACKAGE_MANAGERS、检测、配置读写等。
  */
 
 const assert = require('assert');

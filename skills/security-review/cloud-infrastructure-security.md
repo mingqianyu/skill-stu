@@ -2,11 +2,17 @@
 |------|-------------|
 | cloud-infrastructure-security | Use this skill when deploying to cloud platforms, configuring infrastructure, managing IAM policies, setting up logging/monitoring, or implementing CI/CD pipelines. Provides cloud security checklist aligned with best practices. |
 
+<!-- 本技能：云与基础设施安全。部署、IAM、CI/CD、日志监控、密钥与灾备的检查清单。 -->
+
 # Cloud & Infrastructure Security Skill
 
 This skill ensures cloud infrastructure, CI/CD pipelines, and deployment configurations follow security best practices and comply with industry standards.
 
+<!-- 确保云基础设施、CI/CD 与部署配置符合安全最佳实践。 -->
+
 ## When to Activate
+
+<!-- 适用场景：部署到云、配置 IAM、CI/CD、IaC、日志监控、云上密钥、CDN/灾备时启用。 -->
 
 - Deploying applications to cloud platforms (AWS, Vercel, Railway, Cloudflare)
 - Configuring IAM roles and permissions
@@ -19,7 +25,11 @@ This skill ensures cloud infrastructure, CI/CD pipelines, and deployment configu
 
 ## Cloud Security Checklist
 
+<!-- 小节：IAM 最小权限、MFA、服务账号、访问审计等。 -->
+
 ### 1. IAM & Access Control
+
+<!-- IAM：最小权限、MFA、用角色而非长期凭证、定期审查。 -->
 
 #### Principle of Least Privilege
 

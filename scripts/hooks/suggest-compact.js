@@ -11,6 +11,8 @@
  * - Strategic compacting preserves context through logical phases
  * - Compact after exploration, before execution
  * - Compact after completing a milestone, before starting next
+ *
+ * 中文：策略性压缩建议。用临时文件统计工具调用次数，达到 COMPACT_THRESHOLD 或每 25 次时输出 /compact 建议。
  */
 
 const path = require('path');

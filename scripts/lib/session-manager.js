@@ -5,6 +5,8 @@
  * Sessions are stored as markdown files in ~/.claude/sessions/ with format:
  * - YYYY-MM-DD-session.tmp (old format)
  * - YYYY-MM-DD-<short-id>-session.tmp (new format)
+ *
+ * 中文：会话管理库。会话以 .tmp 文件存于 .claude/sessions/，支持列出、解析、读取会话内容。
  */
 
 const fs = require('fs');

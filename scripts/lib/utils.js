@@ -1,6 +1,9 @@
 /**
  * Cross-platform utility functions for Claude Code hooks and scripts
  * Works on Windows, macOS, and Linux
+ *
+ * 中文：跨平台工具函数。提供 .claude、sessions、session-aliases、learned skills、
+ * 临时目录、日期时间、读写文件、执行命令等，供钩子与脚本复用。
  */
 
 const fs = require('fs');
@@ -9,6 +12,7 @@ const os = require('os');
 const { execSync, spawnSync } = require('child_process');
 
 // Platform detection
+// 平台检测：Windows / macOS / Linux
 const isWindows = process.platform === 'win32';
 const isMacOS = process.platform === 'darwin';
 const isLinux = process.platform === 'linux';

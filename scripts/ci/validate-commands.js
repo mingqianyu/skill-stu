@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Validate command markdown files are non-empty and readable
+ *
+ * 中文：校验 commands/*.md 存在且非空、可读。
  */
 
 const fs = require('fs');

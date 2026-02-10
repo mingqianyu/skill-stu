@@ -3,11 +3,17 @@ name: jpa-patterns
 description: JPA/Hibernate patterns for entity design, relationships, query optimization, transactions, auditing, indexing, pagination, and pooling in Spring Boot.
 ---
 
+<!-- 本技能：JPA/Hibernate 模式。实体设计、关联、查询优化、事务、审计、索引、分页与连接池。 -->
+
 # JPA/Hibernate Patterns
 
 Use for data modeling, repositories, and performance tuning in Spring Boot.
 
+<!-- 用于 Spring Boot 下的数据建模、仓储与性能调优。 -->
+
 ## Entity Design
+
+<!-- 实体：@Table 索引、@EntityListeners 审计、@CreatedDate/@LastModifiedDate、@EnableJpaAuditing。 -->
 
 ```java
 @Entity
@@ -42,6 +48,8 @@ class JpaConfig {}
 
 ## Relationships and N+1 Prevention
 
+<!-- 关联与 N+1：默认懒加载；集合避免 EAGER；用 JOIN FETCH 或 DTO 投影。 -->
+
 ```java
 @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
 private List<PositionEntity> positions = new ArrayList<>();
@@ -56,6 +64,8 @@ Optional<MarketEntity> findWithPositions(@Param("id") Long id);
 ```
 
 ## Repository Patterns
+
+<!-- 仓储：继承 JpaRepository、自定义 @Query、用接口投影做轻量查询。 -->
 
 ```java
 public interface MarketRepository extends JpaRepository<MarketEntity, Long> {
@@ -77,6 +87,8 @@ Page<MarketSummary> findAllBy(Pageable pageable);
 ```
 
 ## Transactions
+
+<!-- 事务：@Transactional 作用域与只读、传播行为。 -->
 
 - Annotate service methods with `@Transactional`
 - Use `@Transactional(readOnly = true)` for read paths to optimize

@@ -2,6 +2,8 @@
  * Tests for scripts/lib/utils.js
  *
  * Run with: node tests/lib/utils.test.js
+ *
+ * 中文：scripts/lib/utils.js 的单元测试。覆盖平台检测、目录路径、日期时间、文件读写、命令执行等。
  */
 
 const assert = require('assert');

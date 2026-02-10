@@ -2,6 +2,9 @@
 """
 Instinct CLI - Manage instincts for Continuous Learning v2
 
+中文：持续学习 v2 的本能管理命令行工具。子命令：status 查看所有本能及置信度；
+import 从文件或 URL 导入；export 导出；evolve 将相关本能聚类为 skill/command/agent。
+
 Commands:
   status   - Show all instincts and their status
   import   - Import instincts from file or URL
@@ -22,6 +25,7 @@ from typing import Optional
 
 # ─────────────────────────────────────────────
 # Configuration
+# 配置：homunculus 根目录、instincts 个人/继承、evolved 输出、observations 文件
 # ─────────────────────────────────────────────
 
 HOMUNCULUS_DIR = Path.home() / ".claude" / "homunculus"
@@ -38,6 +42,7 @@ for d in [PERSONAL_DIR, INHERITED_DIR, EVOLVED_DIR / "skills", EVOLVED_DIR / "co
 
 # ─────────────────────────────────────────────
 # Instinct Parser
+# 解析 instinct 文件：YAML 风格 frontmatter（---...---）+ 正文
 # ─────────────────────────────────────────────
 
 def parse_instinct_file(content: str) -> list[dict]:

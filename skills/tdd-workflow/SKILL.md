@@ -3,11 +3,17 @@ name: tdd-workflow
 description: Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.
 ---
 
+<!-- 本技能：TDD 工作流。新功能、修 bug、重构时先写测试再实现，单元+集成+E2E 80%+ 覆盖。 -->
+
 # Test-Driven Development Workflow
 
 This skill ensures all code development follows TDD principles with comprehensive test coverage.
 
+<!-- 确保开发遵循 TDD 并有完整测试覆盖。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写新功能、修 bug、重构、加 API、新建组件时启用。 -->
 
 - Writing new features or functionality
 - Fixing bugs or issues
@@ -16,6 +22,8 @@ This skill ensures all code development follows TDD principles with comprehensiv
 - Creating new components
 
 ## Core Principles
+
+<!-- 小节：测试先行、80%+ 覆盖、单元/集成/E2E 分工。 -->
 
 ### 1. Tests BEFORE Code
 ALWAYS write tests first, then implement code to make tests pass.
@@ -47,6 +55,8 @@ ALWAYS write tests first, then implement code to make tests pass.
 - UI interactions
 
 ## TDD Workflow Steps
+
+<!-- 步骤：用户故事 → 生成测试用例 → 红 → 绿 → 重构。 -->
 
 ### Step 1: Write User Journeys
 ```

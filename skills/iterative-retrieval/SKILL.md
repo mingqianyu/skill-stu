@@ -3,11 +3,17 @@ name: iterative-retrieval
 description: Pattern for progressively refining context retrieval to solve the subagent context problem
 ---
 
+<!-- 本技能：迭代检索模式。解决子 agent 在不知道需要哪些上下文时，通过多轮“派发→评估→精炼”逐步收窄检索范围。 -->
+
 # Iterative Retrieval Pattern
 
 Solves the "context problem" in multi-agent workflows where subagents don't know what context they need until they start working.
 
+<!-- 解决多 agent 工作流中“子 agent 一开始不知道需要什么上下文”的问题。 -->
+
 ## The Problem
+
+<!-- 问题：全量发送超限、不发送缺信息、猜测常错；需渐进式检索。 -->
 
 Subagents are spawned with limited context. They don't know:
 - Which files contain relevant code
@@ -22,6 +28,8 @@ Standard approaches fail:
 ## The Solution: Iterative Retrieval
 
 A 4-phase loop that progressively refines context:
+
+<!-- 方案：DISPATCH → EVALUATE → REFINE → LOOP，最多 3 轮后继续执行。 -->
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -43,6 +51,8 @@ A 4-phase loop that progressively refines context:
 
 Initial broad query to gather candidate files:
 
+<!-- 阶段 1：用高层意图（patterns、keywords、excludes）做宽泛检索，得到候选文件。 -->
+
 ```javascript
 // Start with high-level intent
 const initialQuery = {
@@ -58,6 +68,8 @@ const candidates = await retrieveFiles(initialQuery);
 ### Phase 2: EVALUATE
 
 Assess retrieved content for relevance:
+
+<!-- 阶段 2：对检索结果打分（相关性、缺失上下文），便于后续精炼。 -->
 
 ```javascript
 function evaluateRelevance(files, task) {
@@ -77,6 +89,8 @@ Scoring criteria:
 - **None (0-0.2)**: Not relevant, exclude
 
 ### Phase 3: REFINE
+
+<!-- 阶段 3：根据评估结果补充检索或缩小范围。 -->
 
 Update search criteria based on evaluation:
 

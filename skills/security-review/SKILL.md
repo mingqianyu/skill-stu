@@ -3,11 +3,17 @@ name: security-review
 description: Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.
 ---
 
+<!-- 本技能：安全审查。认证、用户输入、密钥、API、支付与敏感功能的安全清单与模式。 -->
+
 # Security Review Skill
 
 This skill ensures all code follows security best practices and identifies potential vulnerabilities.
 
+<!-- 确保代码符合安全最佳实践并识别潜在漏洞。 -->
+
 ## When to Activate
+
+<!-- 适用场景：实现认证授权、处理输入/上传、新建 API、处理密钥/支付/敏感数据、集成第三方 API 时启用。 -->
 
 - Implementing authentication or authorization
 - Handling user input or file uploads
@@ -19,7 +25,11 @@ This skill ensures all code follows security best practices and identifies poten
 
 ## Security Checklist
 
+<!-- 小节：密钥管理、输入校验、注入防护、输出编码等。 -->
+
 ### 1. Secrets Management
+
+<!-- 密钥：禁止硬编码；用环境变量；.env 不入库；生产密钥放在托管平台。 -->
 
 #### ❌ NEVER Do This
 ```typescript
@@ -46,6 +56,8 @@ if (!apiKey) {
 - [ ] Production secrets in hosting platform (Vercel, Railway)
 
 ### 2. Input Validation
+
+<!-- 输入校验：用 Zod 等 schema 校验，校验失败返回明确错误。 -->
 
 #### Always Validate User Input
 ```typescript

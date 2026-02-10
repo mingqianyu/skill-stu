@@ -6,6 +6,8 @@
  *
  * Runs when a new Claude session starts. Checks for recent session
  * files and notifies Claude of available context to load.
+ *
+ * 中文：会话开始钩子。新会话启动时检查近期会话文件、学习技能、会话别名，并检测包管理器。
  */
 
 const {

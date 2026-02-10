@@ -3,11 +3,17 @@ name: django-verification
 description: Verification loop for Django projects: migrations, linting, tests with coverage, security scans, and deployment readiness checks before release or PR.
 ---
 
+<!-- 本技能：Django 验证闭环。PR/大改/上线前执行：环境、代码质量、迁移、测试与覆盖率、安全与部署就绪。 -->
+
 # Django Verification Loop
 
 Run before PRs, after major changes, and pre-deploy to ensure Django application quality and security.
 
+<!-- 在提 PR、大改或部署前运行，确保质量与安全。 -->
+
 ## Phase 1: Environment Check
+
+<!-- 阶段 1：检查 Python 版本、虚拟环境、环境变量（如 DJANGO_SECRET_KEY）。 -->
 
 ```bash
 # Verify Python version
@@ -24,6 +30,8 @@ python -c "import os; import environ; print('DJANGO_SECRET_KEY set' if os.enviro
 If environment is misconfigured, stop and fix.
 
 ## Phase 2: Code Quality & Formatting
+
+<!-- 阶段 2：mypy、ruff、black、isort、manage.py check --deploy。 -->
 
 ```bash
 # Type checking
@@ -52,6 +60,8 @@ Common issues:
 
 ## Phase 3: Migrations
 
+<!-- 阶段 3：showmigrations、makemigrations --check、migrate --plan、处理冲突。 -->
+
 ```bash
 # Check for unapplied migrations
 python manage.py showmigrations
@@ -75,6 +85,8 @@ Report:
 - Model changes without migrations
 
 ## Phase 4: Tests + Coverage
+
+<!-- 阶段 4：pytest 全量测试与覆盖率报告。 -->
 
 ```bash
 # Run all tests with pytest

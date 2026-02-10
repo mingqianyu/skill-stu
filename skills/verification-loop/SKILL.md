@@ -1,8 +1,14 @@
 # Verification Loop Skill
 
+<!-- 本技能：验证闭环。功能/大改/PR 前执行构建、类型检查、Lint、测试与覆盖率、安全扫描、diff 审查。 -->
+
 A comprehensive verification system for Claude Code sessions.
 
+<!-- 为 Claude Code 会话提供的综合验证流程。 -->
+
 ## When to Use
+
+<!-- 适用：完成功能或大改后、提 PR 前、需要过质量门、重构后。 -->
 
 Invoke this skill:
 - After completing a feature or significant code change
@@ -11,6 +17,8 @@ Invoke this skill:
 - After refactoring
 
 ## Verification Phases
+
+<!-- 阶段：构建 → 类型检查 → Lint → 测试与覆盖率 → 安全扫描 → Diff 审查。 -->
 
 ### Phase 1: Build Verification
 ```bash
@@ -23,6 +31,8 @@ pnpm build 2>&1 | tail -20
 If build fails, STOP and fix before continuing.
 
 ### Phase 2: Type Check
+
+<!-- tsc --noEmit 或 pyright。 -->
 ```bash
 # TypeScript projects
 npx tsc --noEmit 2>&1 | head -30
@@ -34,6 +44,8 @@ pyright . 2>&1 | head -30
 Report all type errors. Fix critical ones before continuing.
 
 ### Phase 3: Lint Check
+
+<!-- npm run lint 或 ruff。 -->
 ```bash
 # JavaScript/TypeScript
 npm run lint 2>&1 | head -30
@@ -43,6 +55,8 @@ ruff check . 2>&1 | head -30
 ```
 
 ### Phase 4: Test Suite
+
+<!-- 跑测试与覆盖率，目标 80%+。 -->
 ```bash
 # Run tests with coverage
 npm run test -- --coverage 2>&1 | tail -50
@@ -58,6 +72,8 @@ Report:
 - Coverage: X%
 
 ### Phase 5: Security Scan
+
+<!-- 检查硬编码密钥、console.log 等。 -->
 ```bash
 # Check for secrets
 grep -rn "sk-" --include="*.ts" --include="*.js" . 2>/dev/null | head -10
@@ -68,6 +84,8 @@ grep -rn "console.log" --include="*.ts" --include="*.tsx" src/ 2>/dev/null | hea
 ```
 
 ### Phase 6: Diff Review
+
+<!-- 审查 git diff：非预期改动、缺错误处理、边界情况。 -->
 ```bash
 # Show what changed
 git diff --stat

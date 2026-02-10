@@ -3,11 +3,17 @@ name: java-coding-standards
 description: Java coding standards for Spring Boot services: naming, immutability, Optional usage, streams, exceptions, generics, and project layout.
 ---
 
+<!-- 本技能：Java 编码规范。Spring Boot 服务下的命名、不可变、Optional、Stream、异常、泛型与项目结构。 -->
+
 # Java Coding Standards
 
 Standards for readable, maintainable Java (17+) code in Spring Boot services.
 
+<!-- 面向 Spring Boot 服务的可读、可维护 Java 17+ 规范。 -->
+
 ## Core Principles
+
+<!-- 核心：清晰优于聪明、默认不可变、快速失败与有意义异常、一致命名与包结构。 -->
 
 - Prefer clarity over cleverness
 - Immutable by default; minimize shared mutable state
@@ -15,6 +21,8 @@ Standards for readable, maintainable Java (17+) code in Spring Boot services.
 - Consistent naming and package structure
 
 ## Naming
+
+<!-- 命名：类/Record PascalCase，方法/字段 camelCase，常量 UPPER_SNAKE_CASE。 -->
 
 ```java
 // ✅ Classes/Records: PascalCase
@@ -31,6 +39,8 @@ private static final int MAX_PAGE_SIZE = 100;
 
 ## Immutability
 
+<!-- 不可变：多用 record 与 final 字段，仅 getter 无 setter。 -->
+
 ```java
 // ✅ Favor records and final fields
 public record MarketDto(Long id, String name, MarketStatus status) {}
@@ -44,6 +54,8 @@ public class Market {
 
 ## Optional Usage
 
+<!-- Optional：find* 返回 Optional，用 map/flatMap 与 orElseThrow 替代 get()。 -->
+
 ```java
 // ✅ Return Optional from find* methods
 Optional<Market> market = marketRepository.findBySlug(slug);
@@ -56,6 +68,8 @@ return market
 
 ## Streams Best Practices
 
+<!-- Stream：用于转换、管道简短；避免复杂嵌套，可读性差时用循环。 -->
+
 ```java
 // ✅ Use streams for transformations, keep pipelines short
 List<String> names = markets.stream()
@@ -67,6 +81,8 @@ List<String> names = markets.stream()
 ```
 
 ## Exceptions
+
+<!-- 异常：领域错误用 unchecked；包装技术异常并带上下文；领域专属异常；避免宽泛 catch。 -->
 
 - Use unchecked exceptions for domain errors; wrap technical exceptions with context
 - Create domain-specific exceptions (e.g., `MarketNotFoundException`)

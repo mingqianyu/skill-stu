@@ -3,17 +3,25 @@ name: springboot-tdd
 description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
 ---
 
+<!-- 本技能：Spring Boot TDD。JUnit 5、Mockito、MockMvc、Testcontainers、JaCoCo，80%+ 覆盖率。 -->
+
 # Spring Boot TDD Workflow
 
 TDD guidance for Spring Boot services with 80%+ coverage (unit + integration).
 
+<!-- Spring Boot 服务的 TDD 指引，单元+集成 80%+ 覆盖。 -->
+
 ## When to Use
+
+<!-- 适用：新功能/端点、修 bug/重构、数据访问或安全规则。 -->
 
 - New features or endpoints
 - Bug fixes or refactors
 - Adding data access logic or security rules
 
 ## Workflow
+
+<!-- 先写失败测试→最小实现通过→重构保持绿→JaCoCo 覆盖率。 -->
 
 1) Write tests first (they should fail)
 2) Implement minimal code to pass

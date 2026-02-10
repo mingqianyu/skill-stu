@@ -3,11 +3,17 @@ name: django-security
 description: Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations.
 ---
 
+<!-- 本技能：Django 安全实践。认证授权、CSRF/SQL 注入/XSS 防护、生产安全配置与部署。 -->
+
 # Django Security Best Practices
 
 Comprehensive security guidelines for Django applications to protect against common vulnerabilities.
 
+<!-- 针对常见漏洞的 Django 安全指南。 -->
+
 ## When to Activate
+
+<!-- 适用场景：配置认证授权、权限角色、生产安全设置、安全审查、生产部署时启用。 -->
 
 - Setting up Django authentication and authorization
 - Implementing user permissions and roles
@@ -17,7 +23,11 @@ Comprehensive security guidelines for Django applications to protect against com
 
 ## Core Security Settings
 
+<!-- 小节：核心安全设置。 -->
+
 ### Production Settings Configuration
+
+<!-- 生产配置：DEBUG=False、ALLOWED_HOSTS、HSTS/SSL、Cookie 安全、SECRET_KEY 从环境变量、密码校验器。 -->
 
 ```python
 # settings/production.py
@@ -71,7 +81,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ## Authentication
 
+<!-- 小节：认证。 -->
+
 ### Custom User Model
+
+<!-- 自定义用户模型：继承 AbstractUser，便于扩展字段与统一认证。 -->
 
 ```python
 # apps/users/models.py

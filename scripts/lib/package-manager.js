@@ -3,6 +3,9 @@
  * Automatically detects the preferred package manager or lets user choose
  *
  * Supports: npm, pnpm, yarn, bun
+ *
+ * 中文：包管理器检测与选择。根据锁文件或用户选择确定 npm/pnpm/yarn/bun，
+ * 提供 install/run/exec/test/build/dev 等命令；配置持久化在 .claude/package-manager.json。
  */
 
 const fs = require('fs');
@@ -10,6 +13,7 @@ const path = require('path');
 const { commandExists, getClaudeDir, readFile, writeFile } = require('./utils');
 
 // Package manager definitions
+// 各包管理器的锁文件与常用命令
 const PACKAGE_MANAGERS = {
   npm: {
     name: 'npm',
@@ -54,9 +58,11 @@ const PACKAGE_MANAGERS = {
 };
 
 // Priority order for detection
+// 检测优先级：有锁文件时按此顺序优先
 const DETECTION_PRIORITY = ['pnpm', 'bun', 'yarn', 'npm'];
 
 // Config file path
+// 配置保存在 .claude/package-manager.json
 function getConfigPath() {
   return path.join(getClaudeDir(), 'package-manager.json');
 }

@@ -4,6 +4,8 @@
  *
  * Creates beautiful terminal output for the /skill-create command
  * similar to @mvanhorn's /last30days skill
+ *
+ * 中文：技能创建 - 终端美化输出。为 /skill-create 命令生成带边框、颜色、进度的终端输出，无外部依赖。
  */
 
 // ANSI color codes - no external dependencies

@@ -9,6 +9,8 @@
  * Why Stop hook instead of UserPromptSubmit:
  * - Stop runs once at session end (lightweight)
  * - UserPromptSubmit runs every message (heavy, adds latency)
+ *
+ * 中文：持续学习 - 会话评估。在 Stop 钩子中运行，读 continuous-learning config，检查会话消息数后输出是否建议抽取模式及学习技能路径。
  */
 
 const path = require('path');

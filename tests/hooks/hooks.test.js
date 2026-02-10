@@ -2,6 +2,8 @@
  * Tests for hook scripts
  *
  * Run with: node tests/hooks/hooks.test.js
+ *
+ * 中文：钩子脚本的单元测试。通过 spawn 调用 session-start、session-end、pre-compact 等并校验输出与退出码。
  */
 
 const assert = require('assert');

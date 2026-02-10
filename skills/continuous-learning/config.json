@@ -1,4 +1,5 @@
 {
+  "_comment_zh": "持续学习技能配置。min_session_length 最少消息数；extraction_threshold 提取阈值(medium等)；auto_approve 是否自动保存；learned_skills_path 学习技能输出目录；patterns_to_detect 要检测的模式；ignore_patterns 要忽略的模式。",
   "min_session_length": 10,
   "extraction_threshold": "medium",
   "auto_approve": false,
@@ -10,9 +11,5 @@
     "debugging_techniques",
     "project_specific"
   ],
-  "ignore_patterns": [
-    "simple_typos",
-    "one_time_fixes",
-    "external_api_issues"
-  ]
+  "ignore_patterns": ["simple_typos", "one_time_fixes", "external_api_issues"]
 }

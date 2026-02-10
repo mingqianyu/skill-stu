@@ -3,11 +3,17 @@ name: springboot-security
 description: Spring Security best practices for authn/authz, validation, CSRF, secrets, headers, rate limiting, and dependency security in Java Spring Boot services.
 ---
 
+<!-- 本技能：Spring Boot 安全审查。认证、授权、校验、CSRF、密钥、头与依赖安全。 -->
+
 # Spring Boot Security Review
 
 Use when adding auth, handling input, creating endpoints, or dealing with secrets.
 
+<!-- 在添加认证、处理输入、新建端点或处理密钥时使用。 -->
+
 ## Authentication
+
+<!-- 认证：无状态 JWT/opaque token、Cookie 安全、OncePerRequestFilter 校验。 -->
 
 - Prefer stateless JWT or opaque tokens with revocation list
 - Use `httpOnly`, `Secure`, `SameSite=Strict` cookies for sessions
@@ -37,6 +43,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 ```
 
 ## Authorization
+
+<!-- 授权：@EnableMethodSecurity、@PreAuthorize、默认拒绝、最小 scope。 -->
 
 - Enable method security: `@EnableMethodSecurity`
 - Use `@PreAuthorize("hasRole('ADMIN')")` or `@PreAuthorize("@authz.canEdit(#id)")`

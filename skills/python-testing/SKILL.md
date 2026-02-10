@@ -3,11 +3,17 @@ name: python-testing
 description: Python testing strategies using pytest, TDD methodology, fixtures, mocking, parametrization, and coverage requirements.
 ---
 
+<!-- 本技能：Python 测试模式。pytest、TDD、fixture、mock、参数化与覆盖率要求。 -->
+
 # Python Testing Patterns
 
 Comprehensive testing strategies for Python applications using pytest, TDD methodology, and best practices.
 
+<!-- 基于 pytest 与 TDD 的 Python 测试策略与最佳实践。 -->
+
 ## When to Activate
+
+<!-- 适用场景：写新 Python 代码（TDD）、设计测试套件、审查覆盖率、搭建测试基础设施时启用。 -->
 
 - Writing new Python code (follow TDD: red, green, refactor)
 - Designing test suites for Python projects
@@ -15,6 +21,8 @@ Comprehensive testing strategies for Python applications using pytest, TDD metho
 - Setting up testing infrastructure
 
 ## Core Testing Philosophy
+
+<!-- 小节：TDD 红-绿-重构与覆盖率目标。 -->
 
 ### Test-Driven Development (TDD)
 
@@ -48,6 +56,8 @@ pytest --cov=mypackage --cov-report=term-missing --cov-report=html
 ```
 
 ## pytest Fundamentals
+
+<!-- 小节：pytest 基础与测试结构。 -->
 
 ### Basic Test Structure
 

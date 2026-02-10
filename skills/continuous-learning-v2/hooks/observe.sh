@@ -1,6 +1,7 @@
 #!/bin/bash
 # Continuous Learning v2 - Observation Hook
 #
+# 中文：在 PreToolUse/PostToolUse 时捕获工具调用事件，写入 observations.jsonl，供观察者分析。
 # Captures tool use events for pattern analysis.
 # Claude Code passes hook data via stdin as JSON.
 #
@@ -36,6 +37,7 @@
 
 set -e
 
+# 观察数据目录与文件、单文件最大 MB（超则归档）
 CONFIG_DIR="${HOME}/.claude/homunculus"
 OBSERVATIONS_FILE="${CONFIG_DIR}/observations.jsonl"
 MAX_FILE_SIZE_MB=10
@@ -43,6 +45,7 @@ MAX_FILE_SIZE_MB=10
 # Ensure directory exists
 mkdir -p "$CONFIG_DIR"
 
+# 若存在 disabled 标记文件则不再记录
 # Skip if disabled
 if [ -f "$CONFIG_DIR/disabled" ]; then
   exit 0
@@ -56,6 +59,7 @@ if [ -z "$INPUT_JSON" ]; then
   exit 0
 fi
 
+# 用 Python 解析 stdin 的 JSON，提取 hook_type、tool、input/output、session，并截断过长内容
 # Parse using python (more reliable than jq for complex JSON)
 PARSED=$(python3 << EOF
 import json
@@ -98,6 +102,7 @@ except Exception as e:
 EOF
 )
 
+# 解析失败时写一条 parse_error 到 observations，便于排查
 # Check if parsing succeeded
 PARSED_OK=$(echo "$PARSED" | python3 -c "import json,sys; print(json.load(sys.stdin).get('parsed', False))")
 
@@ -108,6 +113,7 @@ if [ "$PARSED_OK" != "True" ]; then
   exit 0
 fi
 
+# 若 observations 文件超过 MAX_FILE_SIZE_MB 则归档后重新开始
 # Archive if file too large
 if [ -f "$OBSERVATIONS_FILE" ]; then
   file_size_mb=$(du -m "$OBSERVATIONS_FILE" 2>/dev/null | cut -f1)
@@ -118,6 +124,7 @@ if [ -f "$OBSERVATIONS_FILE" ]; then
   fi
 fi
 
+# 组装一条观察记录并追加到 observations.jsonl
 # Build and write observation
 timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
@@ -141,6 +148,7 @@ with open('$OBSERVATIONS_FILE', 'a') as f:
     f.write(json.dumps(observation) + '\n')
 EOF
 
+# 若观察者进程在运行，发送 SIGUSR1 触发其立即分析
 # Signal observer if running
 OBSERVER_PID_FILE="${CONFIG_DIR}/.observer.pid"
 if [ -f "$OBSERVER_PID_FILE" ]; then

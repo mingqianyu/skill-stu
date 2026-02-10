@@ -10,6 +10,8 @@
  *   node scripts/setup-package-manager.js --detect
  *   node scripts/setup-package-manager.js --global pnpm
  *   node scripts/setup-package-manager.js --project bun
+ *
+ * 中文：包管理器设置脚本。交互式选择或通过 --global/--project 指定 npm/pnpm/yarn/bun，写入 .claude/package-manager.json 或项目 .claude/package-manager.json。
  */
 
 const {

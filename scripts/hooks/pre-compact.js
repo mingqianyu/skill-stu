@@ -6,6 +6,8 @@
  *
  * Runs before Claude compacts context, giving you a chance to
  * preserve important state that might get lost in summarization.
+ *
+ * 中文：压缩前钩子。在上下文压缩前写入 compaction-log.txt 并在当前会话文件中追加压缩时间戳。
  */
 
 const path = require('path');

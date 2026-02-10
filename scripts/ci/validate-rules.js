@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Validate rule markdown files
+ *
+ * 中文：校验 rules 下 .md 文件存在、可读、非空。
  */
 
 const fs = require('fs');

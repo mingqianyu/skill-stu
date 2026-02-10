@@ -1,5 +1,7 @@
 # Project Guidelines Skill (Example)
 
+<!-- 本技能：项目级指南示例。可作为你自家项目的技能模板；基于 Zenith 生产项目。 -->
+
 This is an example of a project-specific skill. Use this as a template for your own projects.
 
 Based on a real production application: [Zenith](https://zenith.chat) - AI-powered customer discovery platform.
@@ -7,6 +9,8 @@ Based on a real production application: [Zenith](https://zenith.chat) - AI-power
 ---
 
 ## When to Use
+
+<!-- 在针对该具体项目开发时引用；包含架构、目录、代码模式、测试与部署。 -->
 
 Reference this skill when working on the specific project it's designed for. Project skills contain:
 - Architecture overview
@@ -18,6 +22,8 @@ Reference this skill when working on the specific project it's designed for. Pro
 ---
 
 ## Architecture Overview
+
+<!-- 架构概览：技术栈（Next.js、FastAPI、Supabase、Claude、Cloud Run）及服务关系图。 -->
 
 **Tech Stack:**
 - **Frontend**: Next.js 15 (App Router), TypeScript, React
@@ -53,6 +59,8 @@ Reference this skill when working on the specific project it's designed for. Pro
 ---
 
 ## File Structure
+
+<!-- 目录结构：frontend/app、components、backend/routers、services 等。 -->
 
 ```
 project/
